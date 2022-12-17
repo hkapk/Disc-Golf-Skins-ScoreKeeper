@@ -37,25 +37,27 @@ function ScoreList({ name }) {
 
     return (
         <CountContext.Provider value={{ holeCount, setHoleCount }}>
-            <div><div className='
-            text-[16px]
-            text-white'>
-                <button className="previous-hole" onClick={() => reduceHole()}></button>
-                Hole #{holeCount}
-            </div>
+            <div>
+                <div>
+                    <button className="previous-hole" onClick={() => reduceHole()}></button>
+                    <h1 className='
+            text-[48px] 
+            text-white'> Hole #{holeCount}</h1>
+                </div>
                 <SkinContext.Provider value={{ skinCount, setSkinCount }}>
                     <div className="font-poppins font-normal
-        curser-pointer text-[16px]
+        text-[24px]
         text-white">
-                        <p className=''>Skins Available: </p> <p className="skinCount">{skinCount}</p>
-                        <div><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => pushHole()}>
+                        <p className='w-full '>Skins Available: {skinCount}</p>
+                        <div><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded mb-6" onClick={() => pushHole()}>
                             Push Hole </button>
                         </div>
                     </div>
-                    <ul>
+                    <ul className="mb-32">
                         <li className='font-poppins
                         font-normal
-                        text-[16px] text-white'>
+                        text-[36px] text-white
+                        '>
                             {
                                 name.sort(sortByDate).map((value, index) => (
                                     <Score

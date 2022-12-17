@@ -20,9 +20,11 @@ function Score({ name }) {
 
 
     return (
-        <div className="player-item">
-            {name.playerName}: {playerSkinCount} <button className='add-skin' onClick={() => addSkin()
-            }> + </button></div>
+        <div className="grid grid-cols-3 gap-4">
+            <div className="">{name.playerName}: </div>
+            <div className="pl-20"> {playerSkinCount} </div>
+            <div className="pl-6"> <button className='add-skin' onClick={() => addSkin()}> + </button></div>
+        </div>
     )
 }
 

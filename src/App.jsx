@@ -25,7 +25,8 @@ function App() {
           <PageContext.Provider value={{ isToggled, setIsToggled }}>
             {isToggled ? <PlayerForm name={name} setName={setName} /> : <ScoreList name={name} setName={setName} />}
 
-            {isToggled ? <button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>Start</button> : <><button className="submitButton" onClick={() => setIsToggled(!isToggled)}>New Game</button> </>}
+            {isToggled ? <button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>Start</button> :
+              <><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>New Game</button> </>}
           </PageContext.Provider>
         </div>
       </div>
