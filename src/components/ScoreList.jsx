@@ -37,23 +37,21 @@ function ScoreList({ name }) {
 
     return (
         <CountContext.Provider value={{ holeCount, setHoleCount }}>
-            <div>
+            <div className="grid justify-items-center">
                 <div>
-                    <button className="previous-hole" onClick={() => reduceHole()}></button>
+                    <button className="" onClick={() => reduceHole()}></button>
                     <h1 className='
-            text-[48px] 
-            text-white'> Hole #{holeCount}</h1>
+                    text-[48px] 
+                    text-white'> Hole #{holeCount}</h1>
                 </div>
                 <SkinContext.Provider value={{ skinCount, setSkinCount }}>
                     <div className="font-poppins font-normal
-        text-[24px]
-        text-white">
-                        <p className='w-full '>Skins Available: {skinCount}</p>
-                        <div><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded mb-6" onClick={() => pushHole()}>
-                            Push Hole </button>
-                        </div>
+                                    grid grid-cols-3">
+                        <div className='text-[24px]
+                                    text-white col-span-2 mt-6'>Skins Available: </div>
+                        <div className="text-[24px] text-red-400 m-6 rounded"> {skinCount} </div>
                     </div>
-                    <ul className="mb-32">
+                    <ul className="mb-12">
                         <li className='font-poppins
                         font-normal
                         text-[36px] text-white
@@ -70,6 +68,9 @@ function ScoreList({ name }) {
                             }
                         </li>
                     </ul>
+                    <div className="grid justify-items-center"><button className="bg-white text-black hover:bg-blue-400 font-bold h-24 w-54 py-2 px-4 mt-3 rounded mb-6 text-[24px]" onClick={() => pushHole()}>
+                        Push Hole </button>
+                    </div>
                 </SkinContext.Provider>
             </div>
         </CountContext.Provider >

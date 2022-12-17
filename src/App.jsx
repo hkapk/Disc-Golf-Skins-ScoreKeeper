@@ -26,7 +26,8 @@ function App() {
             {isToggled ? <PlayerForm name={name} setName={setName} /> : <ScoreList name={name} setName={setName} />}
 
             {isToggled ? <button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>Start</button> :
-              <><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>New Game</button> </>}
+              <><button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => (console.log("button"))}>End Game</button>
+                <button className="bg-white text-black hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded" onClick={() => setIsToggled(!isToggled)}>New Game</button> </>}
           </PageContext.Provider>
         </div>
       </div>
