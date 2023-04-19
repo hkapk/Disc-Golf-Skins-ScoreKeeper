@@ -1,16 +1,19 @@
 import React from "react";
-import { Player } from "../Player/Player";
 import * as styles from "./PlayerList.styles";
 
-//TODO: Update types
-export const PlayerList = (props) => {
-  const { name } = props;
+type PlayerListProps = {
+  players: string[];
+};
 
-  //TODO: Consolidate this component with Player
+export const PlayerList = (props: PlayerListProps) => {
+  const { players } = props;
+
   return (
     <div style={styles.container}>
-      {name.map((value, index) => (
-        <Player key={index} name={value} index={index} />
+      {players.map((value, index) => (
+        <li key={index} style={styles.nameWrapper}>
+          <div>{value}</div>
+        </li>
       ))}
     </div>
   );

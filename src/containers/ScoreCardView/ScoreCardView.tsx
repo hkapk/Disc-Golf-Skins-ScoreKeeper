@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { PlayerScoreRow } from "../../components/PlayerScoreRow/PlayerScoreRow";
-//TODO: Update ScoreModal with working table
-// import { ScoreModal } from "../../components/ScoreModal";
 import * as styles from "./ScoreCardView.styles";
+//TODO: Move New Game and End Game buttons to SettingsDrawer
+type ScoreCardViewProps = {
+  players: string[];
+  handleHasRoundStarted?: (status: boolean) => void;
+};
 
-//TODO: Update types
-export const ScoreCardView = (props) => {
-  const { name, handleHasRoundStarted } = props;
-  const [holeCount, setHoleCount] = useState(1);
-  const [skinCount, setSkinCount] = useState(1);
-  //TODO: Update ScoreModal with working table
-  // const [shouldDisplayModal, setShouldDisplayModal] = useState(false);
+export const ScoreCardView = (props: ScoreCardViewProps) => {
+  const { players, handleHasRoundStarted } = props;
+
+  const [holeCount, setHoleCount] = useState<number>(1);
+  const [skinCount, setSkinCount] = useState<number>(1);
 
   const pushHole = () => {
     setSkinCount(skinCount + 1);
@@ -26,7 +27,7 @@ export const ScoreCardView = (props) => {
       </div>
       <ul>
         <li>
-          {name.map((value, index) => (
+          {players.map((value, index) => (
             <PlayerScoreRow
               skinCount={skinCount}
               setSkinCount={setSkinCount}
@@ -43,12 +44,6 @@ export const ScoreCardView = (props) => {
         <button style={styles.pushHoleButton} onClick={() => pushHole()}>
           Push Hole
         </button>
-        {/* {TODO: Update ScoreModal with working table and uncomment out folowing code - also might be too easy to accidentally hit New Game and erase existing game data} */}
-
-        {/* {shouldDisplayModal && (
-          <ScoreModal setModalOn={setShouldDisplayModal} />
-        )} */}
-
         {/* <button
           style={styles.genericButtonStyles}
           onClick={() => setShouldDisplayModal(true)}

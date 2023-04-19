@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import * as styles from "./PlayerScoreRow.styles";
-//TODO: Update types
-export const PlayerScoreRow = (props) => {
+
+type PlayerScoreRowProps = {
+  name: string;
+  skinCount: number;
+  setSkinCount: Dispatch<SetStateAction<number>>;
+  holeCount: number;
+  setHoleCount: Dispatch<SetStateAction<number>>;
+  index: number;
+};
+
+export const PlayerScoreRow = (props: PlayerScoreRowProps) => {
   const { name, skinCount, setSkinCount, holeCount, setHoleCount } = props;
 
-  const [playerSkinCount, setPlayerSkinCount] = useState(0);
+  const [playerSkinCount, setPlayerSkinCount] = useState<number>(0);
 
   const addSkin = () => {
     setPlayerSkinCount(playerSkinCount + skinCount);
@@ -16,7 +25,7 @@ export const PlayerScoreRow = (props) => {
 
   return (
     <div style={styles.containerWrapper}>
-      <div>{name.playerName}: </div>
+      <div>{name}: </div>
       <div> {playerSkinCount} </div>
       <div style={styles.addSkinButton}>
         <button onClick={() => addSkin()}>+</button>

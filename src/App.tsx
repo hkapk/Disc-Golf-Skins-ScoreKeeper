@@ -3,10 +3,10 @@ import { PlayerFormView } from "./containers/PlayerFormView/PlayerFormView";
 import { ScoreCardView } from "./containers/ScoreCardView/ScoreCardView";
 import React, { useState } from "react";
 import * as styles from "./style";
-//TODO: Update types
+
 function App() {
-  const [name, setName] = useState([]);
-  const [hasRoundStarted, setHasRoundStarted] = useState(false);
+  const [players, setPlayers] = useState<string[]>([]);
+  const [hasRoundStarted, setHasRoundStarted] = useState<boolean>(false);
 
   const handleHasRoundStarted = (status: boolean) => {
     setHasRoundStarted(status);
@@ -18,14 +18,13 @@ function App() {
       <div style={styles.viewContainer}>
         {hasRoundStarted ? (
           <ScoreCardView
-            name={name}
-            setName={setName}
+            players={players}
             handleHasRoundStarted={handleHasRoundStarted}
           />
         ) : (
           <PlayerFormView
-            name={name}
-            setName={setName}
+            players={players}
+            setPlayers={setPlayers}
             handleHasRoundStarted={handleHasRoundStarted}
           />
         )}
