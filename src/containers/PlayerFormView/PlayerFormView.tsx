@@ -1,24 +1,27 @@
-import React, { useRef } from "react";
+import React, { Dispatch, SetStateAction, useRef } from "react";
 import { PlayerList } from "../../components/PlayerList/PlayerList";
 import * as styles from "./PlayerFormView.styles";
 
-export const PlayerFormView = (props) => {
-  const { name, setName, handleHasRoundStarted } = props;
+type PlayerFormViewProps = {
+  players: string[];
+  setPlayers: Dispatch<SetStateAction<string[]>>;
+  handleHasRoundStarted: (status: boolean) => void;
+};
 
-  const playerName = useRef(null);
-  //TODO: Replace useRef with useState and update addPlayer, update types, and remove ts-ignores
+export const PlayerFormView = (props: PlayerFormViewProps) => {
+  const { players, setPlayers, handleHasRoundStarted } = props;
+
+  const newPlayerName = useRef<HTMLInputElement>(null);
+
   const addPlayer = (e) => {
     e.preventDefault();
 
-    setName([
-      ...name,
-      {
-        //@ts-ignore
-        playerName: playerName?.current?.value ?? "",
-      },
-    ]);
-    //@ts-ignore
-    playerName.current.value = null;
+    const playerName = newPlayerName?.current?.value;
+
+    if (playerName) {
+      setPlayers([...players, playerName]);
+      newPlayerName.current.value = "";
+    }
   };
 
   return (
@@ -31,25 +34,27 @@ export const PlayerFormView = (props) => {
               style={styles.nameInput}
               name='playerName'
               placeholder='Player Name...'
-              ref={playerName}
+              ref={newPlayerName}
             />
             <input style={styles.plusButton} type='submit' value='+' />
           </div>
           <div>
             <ul>
-              <PlayerList name={name} setName={setName} />
+              <PlayerList players={players} />
             </ul>
           </div>
         </div>
       </form>
-      {/* TODO: Start button should be conditional depending on if multiple players are entered */}
+
       <div style={styles.buttonSection}>
-        <button
-          style={styles.startButton}
-          onClick={() => handleHasRoundStarted(true)}
-        >
-          Start
-        </button>
+        {players.length > 1 && (
+          <button
+            style={styles.startButton}
+            onClick={() => handleHasRoundStarted(true)}
+          >
+            Start
+          </button>
+        )}
       </div>
     </>
   );
