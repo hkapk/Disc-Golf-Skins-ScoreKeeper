@@ -32,11 +32,17 @@ export const PlayerFormView = (props: PlayerFormViewProps) => {
           <div style={styles.inputSection}>
             <input
               style={styles.nameInput}
+              data-testid='player-input-field'
               name='playerName'
               placeholder='Player Name...'
               ref={newPlayerName}
             />
-            <input style={styles.plusButton} type='submit' value='+' />
+            <input
+              style={styles.plusButton}
+              data-testid='add-player-button'
+              type='submit'
+              value='+'
+            />
           </div>
           <div>
             <ul>
