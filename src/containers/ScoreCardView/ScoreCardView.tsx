@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PlayerScoreRow } from "../../components/PlayerScoreRow/PlayerScoreRow";
 import * as styles from "./ScoreCardView.styles";
-//TODO: Move New Game and End Game buttons to SettingsDrawer
+
 type ScoreCardViewProps = {
   players: string[];
   handleHasRoundStarted?: (status: boolean) => void;
@@ -44,18 +44,6 @@ export const ScoreCardView = (props: ScoreCardViewProps) => {
         <button style={styles.pushHoleButton} onClick={() => pushHole()}>
           Push Hole
         </button>
-        {/* <button
-          style={styles.genericButtonStyles}
-          onClick={() => setShouldDisplayModal(true)}
-        >
-          End Game
-        </button> */}
-        {/* <button
-          style={styles.genericButtonStyles}
-          onClick={() => handleHasRoundStarted(false)}
-        >
-          New Game
-        </button> */}
       </div>
     </div>
   );

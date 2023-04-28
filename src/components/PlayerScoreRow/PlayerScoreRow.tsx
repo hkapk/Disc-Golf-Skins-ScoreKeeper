@@ -25,7 +25,7 @@ export const PlayerScoreRow = (props: PlayerScoreRowProps) => {
 
   return (
     <div style={styles.containerWrapper}>
-      <div>{name}: </div>
+      <div>{`${name} :`} </div>
       <div> {playerSkinCount} </div>
       <div style={styles.addSkinButton}>
         <button onClick={() => addSkin()}>+</button>
