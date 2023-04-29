@@ -23,7 +23,7 @@ export const ScoreCardView = (props: ScoreCardViewProps) => {
       <h3 style={styles.holeCountFont}>Hole #{holeCount}</h3>
       <div style={styles.skinsCountWrapper}>
         <div>Skins Available:</div>
-        <div style={styles.skinCountColor}>{skinCount}</div>
+        <div data-testid='skin-count' style={styles.skinCountColor}>{skinCount}</div>
       </div>
       <ul>
         <li>
