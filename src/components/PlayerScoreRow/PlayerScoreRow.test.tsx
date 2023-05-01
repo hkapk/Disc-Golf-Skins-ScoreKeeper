@@ -4,6 +4,7 @@ import { screen, render, act } from "@testing-library/react";
 import { PlayerScoreRow } from "./PlayerScoreRow";
 import userEvent from "@testing-library/user-event";
 
+//TODO: Add integration tests around updating hole number and player skin count when clicking player + button
 describe("PlayerScoreRow", () => {
   it("should render player name", () => {
     render(
