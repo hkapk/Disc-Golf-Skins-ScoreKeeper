@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["cypress", "@testing-library/cypress"]
+  },
+  "exclude": ["node_modules", "cypress", "cypress.config.ts"]
+}
+//TODO: Create separate tsconfig for Cypress tests?? https://docs.cypress.io/guides/tooling/typescript-support#Configure-tsconfig-json
